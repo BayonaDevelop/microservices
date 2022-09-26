@@ -1,4 +1,4 @@
-package com.example.commons
+package com.bayonasoftware.batteryplus.microservices.services.commons
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.autoconfigure.domain.EntityScan

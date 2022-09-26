@@ -18,6 +18,7 @@ import javax.persistence.Temporal
 import javax.persistence.TemporalType
 import java.io.Serial
 import java.io.Serializable
+import java.math.BigInteger
 import java.util.Date
 
 
@@ -46,7 +47,7 @@ class Address : Serializable {
 
   @Id
   @get:Column(name = "id", nullable = false)
-  var id: Long? = null
+  var id: BigInteger? = null
 
   @get:Column(name = "Internal_Number", length = 60)
   var internalNumber: String? = null

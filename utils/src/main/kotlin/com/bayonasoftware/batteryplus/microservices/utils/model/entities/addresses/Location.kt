@@ -15,6 +15,7 @@ import javax.persistence.Table
 import javax.persistence.UniqueConstraint
 import java.io.Serial
 import java.io.Serializable
+import java.math.BigInteger
 
 @Entity
 @Table(schema = "public", name = "location")
@@ -32,7 +33,7 @@ class Location : Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @get:Column(name = "id", nullable = false)
-  var id: Long? = null
+  var id: BigInteger? = null
 
   @get:Column(name = "code", length = 10)
   var code: String? = null

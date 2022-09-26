@@ -43,7 +43,7 @@ class Country : Serializable {
   var satRegistryRegex: String? = null
 
   @get:Column(name = "region", length = 60)
-  var reginon: String? = null
+  var region: String? = null
 
   @get:Column(name = "coat_of_arms")
   var coatOfArms: String? = null
