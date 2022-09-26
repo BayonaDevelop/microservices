@@ -42,20 +42,20 @@ class BciBase : Serializable {
   @get:Column(name = "active")
   var active = false
 
-  @get:JsonIgnore
+  /*@get:JsonIgnore
   @get:OneToMany(fetch = FetchType.LAZY, mappedBy = "base")
   var used: MutableSet<BciUsed>? = null
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "base")
-  var warranties: Set<BciWarranty>? = null
+  var warranties: MutableSet<BciWarranty>? = null
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "base")
-  var coverages: Set<CoverageBciBase>? = null
+  var coverages: MutableSet<CoverageBciBase>? = null*/
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "base")
-  var logs: Set<BciBaseLog>? = null
+  var logs: MutableSet<BciBaseLog>? = null
 
 }

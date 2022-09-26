@@ -1,7 +1,5 @@
 package com.bayonasoftware.batteryplus.microservices.utils.model.entities.logs
 
-import com.bayonasoftware.batteryplus.microservices.utils.model.entities.accumulators.Accumulator
-import com.bayonasoftware.batteryplus.microservices.utils.model.entities.accumulators.BciBase
 import com.bayonasoftware.batteryplus.microservices.utils.model.entities.accumulators.Grouper
 import com.bayonasoftware.batteryplus.microservices.utils.model.entities.oauth.User
 import com.fasterxml.jackson.annotation.JsonIgnore
@@ -24,7 +22,7 @@ class GrouperLog : Serializable {
   @get:JsonIgnore
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "entity_id", nullable = false)
-  var entity: Grouper? = null
+  var grouper: Grouper? = null
 
   @get:JsonIgnore
   @ManyToOne(fetch = FetchType.LAZY)

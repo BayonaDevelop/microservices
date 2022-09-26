@@ -53,6 +53,6 @@ class Country : Serializable {
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "country")
-  var cities: MutableSet<Country>?= null
+  var cities: MutableSet<City>?= null
 
 }

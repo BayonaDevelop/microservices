@@ -1,10 +1,10 @@
-package com.bayonasoftware.batteryplus.microservices.services.services
+package com.example.commons
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class ServicesApplicationTests {
+class CommonsApplicationTests {
 
   @Test
   fun contextLoads() {

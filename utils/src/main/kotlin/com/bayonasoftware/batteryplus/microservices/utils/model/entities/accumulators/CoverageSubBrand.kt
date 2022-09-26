@@ -8,7 +8,7 @@ import java.io.Serializable
 
 
 @Entity
-@Table(schema = "public", name = "coverage_sub_brand", uniqueConstraints = [UniqueConstraint(columnNames = ["coverage_type_id", "sub_brand_id", "months_start", "months_end", "percentage"])])
+@Table(schema = "public", name = "coverage_sub_brand")
 @JsonIgnoreProperties("hibernateLazyInitializer")
 class CoverageSubBrand : Serializable {
 

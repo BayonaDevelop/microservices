@@ -1,7 +1,6 @@
 package com.bayonasoftware.batteryplus.microservices.utils.model.entities.catalogs
 
 import com.bayonasoftware.batteryplus.microservices.utils.model.entities.addresses.Address
-import com.bayonasoftware.batteryplus.microservices.utils.model.entities.logs.LineLog
 import com.bayonasoftware.batteryplus.microservices.utils.model.entities.logs.WarehouseLog
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
@@ -48,6 +47,10 @@ class Warehouse : Serializable {
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "warehouse")
-  var logs: Set<WarehouseLog>? = null
+  var sections: MutableSet<WarehouseSection>? = null
+
+  @get:JsonIgnore
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "warehouse")
+  var logs: MutableSet<WarehouseLog>? = null
 
 }

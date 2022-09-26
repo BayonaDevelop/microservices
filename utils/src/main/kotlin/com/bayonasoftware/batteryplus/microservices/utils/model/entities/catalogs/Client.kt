@@ -1,6 +1,7 @@
 package com.bayonasoftware.batteryplus.microservices.utils.model.entities.catalogs
 
 import com.bayonasoftware.batteryplus.microservices.utils.model.entities.addresses.Address
+import com.bayonasoftware.batteryplus.microservices.utils.model.entities.movements.Movement
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import java.io.Serial
@@ -54,4 +55,8 @@ class Client : Serializable {
 
   @get:Column(name = "active", nullable = false)
   var active = false
+
+  @JsonIgnore
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
+  private val movements: MutableSet<Movement>? = null
 }

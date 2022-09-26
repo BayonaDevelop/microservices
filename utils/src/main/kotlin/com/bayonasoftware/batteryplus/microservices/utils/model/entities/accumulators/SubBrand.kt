@@ -1,5 +1,6 @@
 package com.bayonasoftware.batteryplus.microservices.utils.model.entities.accumulators
 
+import com.bayonasoftware.batteryplus.microservices.utils.model.entities.logs.SubBrandLog
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import javax.persistence.*
@@ -38,10 +39,14 @@ class SubBrand : Serializable {
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "subBrand")
-  var bciWarranties: Set<BciWarranty>? = null
+  var bciWarranties: MutableSet<BciWarranty>? = null
+
+  /*@get:JsonIgnore
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "subbrand")
+  var coverages: MutableSet<CoverageSubBrand>? = null*/
 
   @get:JsonIgnore
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "subbrand")
-  var coverages: Set<CoverageSubBrand>? = null
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "subBrand")
+  var logs: MutableSet<SubBrandLog>? = null
 
 }

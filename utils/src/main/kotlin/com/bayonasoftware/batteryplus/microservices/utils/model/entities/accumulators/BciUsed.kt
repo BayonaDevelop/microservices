@@ -32,6 +32,6 @@ class BciUsed : Serializable {
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "used")
-  var accumulators: Set<Accumulator>? = null
+  var accumulators: MutableSet<Accumulator>? = null
   
 }

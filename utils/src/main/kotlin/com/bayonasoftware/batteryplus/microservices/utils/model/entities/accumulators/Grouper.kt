@@ -33,12 +33,12 @@ class Grouper : Serializable {
   @get:Column(name = "active")
   var active = false
 
-  @get:JsonIgnore
+ /* @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "grouper")
-  var bciBases: Set<BciBase>? = null
+  var bciBases: MutableSet<BciBase>? = null*/
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "grouper")
-  var logs: Set<GrouperLog>? = null
+  var logs: MutableSet<GrouperLog>? = null
 
 }

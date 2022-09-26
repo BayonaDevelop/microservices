@@ -9,7 +9,7 @@ import java.io.Serializable
 
 
 @Entity
-@Table(schema = "public", name = "bci_warranty", uniqueConstraints = [UniqueConstraint(columnNames = ["bci_base_id", "line_id", "brand_id", "sub_brand_id", "amperage"])])
+@Table(schema = "public", name = "bci_warranty")
 @JsonIgnoreProperties("hibernateLazyInitializer")
 class BciWarranty : Serializable {
 
@@ -47,9 +47,9 @@ class BciWarranty : Serializable {
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "warranty")
-  var accumulators: Set<Accumulator>? = null
+  var accumulators: MutableSet<Accumulator>? = null
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "warranty")
-  var logs: Set<BciWarrantyLog>? = null
+  var logs: MutableSet<BciWarrantyLog>? = null
 }

@@ -1,6 +1,8 @@
 package com.bayonasoftware.batteryplus.microservices.utils.model.entities.catalogs
 
 import com.bayonasoftware.batteryplus.microservices.utils.model.entities.addresses.Address
+import com.bayonasoftware.batteryplus.microservices.utils.model.entities.movements.Movement
+import com.bayonasoftware.batteryplus.microservices.utils.model.entities.oauth.User
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import java.io.Serial
@@ -19,6 +21,10 @@ class Person : Serializable {
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "address_id")
   var address: Address? = null
+
+  @get:JsonIgnore
+  @OneToOne(fetch = FetchType.LAZY, mappedBy = "person")
+  var user: User? = null
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,5 +57,9 @@ class Person : Serializable {
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "person")
-  var telephones: Set<Telephone>? = null
+  var telephones: MutableSet<Telephone>? = null
+
+  @JsonIgnore
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "person")
+  private val movements: MutableSet<Movement>? = null
 }

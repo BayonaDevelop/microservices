@@ -28,10 +28,10 @@ class Line : Serializable {
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "line")
-  var warranties: Set<BciWarranty>? = null
+  var warranties: MutableSet<BciWarranty>? = null
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "line")
-  var logs: Set<LineLog>? = null
+  var logs: MutableSet<LineLog>? = null
 
 }

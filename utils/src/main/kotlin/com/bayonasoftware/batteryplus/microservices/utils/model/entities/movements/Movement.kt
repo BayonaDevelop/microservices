@@ -76,6 +76,6 @@ class Movement : Serializable {
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "movement")
-  var details: Set<MovementDetail>? = null
+  var details: MutableSet<MovementDetail>? = null
   
 }

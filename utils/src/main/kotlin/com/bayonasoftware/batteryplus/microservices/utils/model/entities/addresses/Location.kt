@@ -2,10 +2,19 @@ package com.bayonasoftware.batteryplus.microservices.utils.model.entities.addres
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import javax.persistence.Column
+import javax.persistence.Entity
+import javax.persistence.FetchType
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
+import javax.persistence.Id
+import javax.persistence.JoinColumn
+import javax.persistence.ManyToOne
+import javax.persistence.OneToMany
+import javax.persistence.Table
+import javax.persistence.UniqueConstraint
 import java.io.Serial
 import java.io.Serializable
-import javax.persistence.*
-import java.math.BigInteger
 
 @Entity
 @Table(schema = "public", name = "location")
@@ -23,7 +32,7 @@ class Location : Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @get:Column(name = "id", nullable = false)
-  var id: BigInteger? = null
+  var id: Long? = null
 
   @get:Column(name = "code", length = 10)
   var code: String? = null

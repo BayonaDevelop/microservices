@@ -6,11 +6,19 @@ import com.bayonasoftware.batteryplus.microservices.utils.model.entities.catalog
 import com.bayonasoftware.batteryplus.microservices.utils.model.entities.catalogs.Warehouse
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import javax.persistence.*
+import javax.persistence.Column
+import javax.persistence.Entity
+import javax.persistence.FetchType
+import javax.persistence.Id
+import javax.persistence.JoinColumn
+import javax.persistence.ManyToOne
+import javax.persistence.OneToMany
+import javax.persistence.Table
+import javax.persistence.Temporal
+import javax.persistence.TemporalType
 import java.io.Serial
 import java.io.Serializable
-import java.math.BigInteger
-import java.util.*
+import java.util.Date
 
 
 @Entity
@@ -38,7 +46,7 @@ class Address : Serializable {
 
   @Id
   @get:Column(name = "id", nullable = false)
-  var id: BigInteger? = null
+  var id: Long? = null
 
   @get:Column(name = "Internal_Number", length = 60)
   var internalNumber: String? = null
@@ -55,17 +63,17 @@ class Address : Serializable {
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "address")
-  var clients: Set<Client>? = null
+  var clients: MutableSet<Client>? = null
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "address")
-  var people: Set<Person>? = null
+  var people: MutableSet<Person>? = null
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "address")
-  var commercialBranches: Set<CommercialBranch>? = null
+  var commercialBranches: MutableSet<CommercialBranch>? = null
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "address")
-  var warehouses: Set<Warehouse>? = null
+  var warehouses: MutableSet<Warehouse>? = null
 }

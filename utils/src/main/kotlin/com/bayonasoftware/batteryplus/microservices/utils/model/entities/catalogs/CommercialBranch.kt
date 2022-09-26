@@ -56,9 +56,9 @@ class CommercialBranch : Serializable {
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "commercialBranch")
-  var users: Set<User>? = null
+  var users: MutableSet<User>? = null
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "commercialBranch")
-  var warehouses: Set<Warehouse>? = null
+  var warehouses: MutableSet<Warehouse>? = null
 }

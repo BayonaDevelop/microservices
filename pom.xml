@@ -110,6 +110,7 @@
   </build>
 
   <modules>
+    <module>services</module>
     <module>utils</module>
   </modules>
 

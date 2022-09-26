@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/batteryplus_dev
+    username: postgres
+    password: sql
+    hikari:
+      poolName: SpringBootJPAHikariCP
+      connectionTimeout: 30000
+      maxLifetime: 2000000
+      minimumIdle: 5
+      maximumPoolSize: 20
+      idleTimeout: 30000
+  jpa:
+    #defer-datasource-initialization: true
+    #generate-ddl: true
+    hibernate:
+      connection.provider_class: org.hibernate.hikaricp.internal.HikariCPConnectionProvider
+      #ddl-auto: create-drop
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: true
+        format_sql: true
+        use_sql: true
+        search.autoregister_listeners: false
+        bytecode:
+          use_reflection_optimizer: false
+        temp:
+          use_jdbc_metadata_defaults: false
+  sql:
+    init:
+      mode: always

@@ -2,11 +2,18 @@ package com.bayonasoftware.batteryplus.microservices.utils.model.entities.addres
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import javax.persistence.Column
+import javax.persistence.Entity
+import javax.persistence.FetchType
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
+import javax.persistence.Id
+import javax.persistence.JoinColumn
+import javax.persistence.ManyToOne
+import javax.persistence.OneToMany
+import javax.persistence.Table
 import java.io.Serial
 import java.io.Serializable
-import java.math.BigInteger
-import javax.persistence.*
-
 
 @Entity
 @Table(schema = "public", name = "street")
@@ -14,7 +21,7 @@ import javax.persistence.*
 class Street : Serializable {
 
   @Serial
-  var serialVersionUID = 1L
+  private val serialVersionUID = 1L
 
   @get:JsonIgnore
   @ManyToOne(fetch = FetchType.LAZY)
@@ -24,21 +31,20 @@ class Street : Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @get:Column(name = "id", nullable = false)
-  var id: BigInteger? = null
+  var id: Long? = null
 
   @get:Column(name = "name", nullable = false)
   var name: String? = null
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "street")
-  var addresses: Set<Address>? = null
+  var addresses: MutableSet<Address>? = null
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "streetA")
-  var addressesA: Set<Address>? = null
+  var addressesA: MutableSet<Address>? = null
 
   @get:JsonIgnore
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "streetB")
-  var addressesB: Set<Address>? = null
-  
+  var addressesB: MutableSet<Address>? = null
 }

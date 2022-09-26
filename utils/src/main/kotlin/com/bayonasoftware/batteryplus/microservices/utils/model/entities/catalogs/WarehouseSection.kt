@@ -1,5 +1,6 @@
 package com.bayonasoftware.batteryplus.microservices.utils.model.entities.catalogs
 
+import com.bayonasoftware.batteryplus.microservices.utils.model.entities.movements.Movement
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import java.io.Serial
@@ -26,4 +27,12 @@ class WarehouseSection : Serializable {
 
   @get:Column(name = "name", nullable = false)
   var name: String? = null
+
+  @get:JsonIgnore
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "origin")
+  var origins: MutableSet<Movement>? = null
+
+  @get:JsonIgnore
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "destination")
+  var destinations: MutableSet<Movement>? = null
 }

@@ -26,7 +26,7 @@ class WarehouseLog : Serializable {
   @get:JsonIgnore
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "entity_id", nullable = false)
-  var entity: Warehouse? = null
+  var warehouse: Warehouse? = null
 
   @get:JsonIgnore
   @ManyToOne(fetch = FetchType.LAZY)

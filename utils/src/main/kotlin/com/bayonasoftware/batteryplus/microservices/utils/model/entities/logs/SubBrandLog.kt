@@ -1,8 +1,6 @@
 package com.bayonasoftware.batteryplus.microservices.utils.model.entities.logs
 
-import com.bayonasoftware.batteryplus.microservices.utils.model.entities.accumulators.Accumulator
-import com.bayonasoftware.batteryplus.microservices.utils.model.entities.accumulators.BciBase
-import com.bayonasoftware.batteryplus.microservices.utils.model.entities.catalogs.CommercialBranch
+import com.bayonasoftware.batteryplus.microservices.utils.model.entities.accumulators.SubBrand
 import com.bayonasoftware.batteryplus.microservices.utils.model.entities.oauth.User
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
@@ -10,13 +8,13 @@ import javax.persistence.*
 import java.io.Serial
 import java.io.Serializable
 import java.math.BigInteger
-import java.util.Date
+import java.util.*
 
 
 @Entity
-@Table(schema = "public", name = "commercial_branch_log")
+@Table(schema = "public", name = "brand_log")
 @JsonIgnoreProperties("hibernateLazyInitializer")
-class CommercialBranchLog : Serializable {
+class SubBrandLog : Serializable {
 
   @Serial
   private var serialVersionUID = 1L
@@ -24,7 +22,7 @@ class CommercialBranchLog : Serializable {
   @get:JsonIgnore
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "entity_id", nullable = false)
-  var entity: CommercialBranch? = null
+  var subBrand: SubBrand? = null
 
   @get:JsonIgnore
   @ManyToOne(fetch = FetchType.LAZY)

@@ -1,8 +1,5 @@
 package com.bayonasoftware.batteryplus.microservices.utils.model.entities.logs
 
-import com.bayonasoftware.batteryplus.microservices.utils.model.entities.accumulators.Accumulator
-import com.bayonasoftware.batteryplus.microservices.utils.model.entities.accumulators.BciBase
-import com.bayonasoftware.batteryplus.microservices.utils.model.entities.accumulators.Grouper
 import com.bayonasoftware.batteryplus.microservices.utils.model.entities.accumulators.Line
 import com.bayonasoftware.batteryplus.microservices.utils.model.entities.oauth.User
 import com.fasterxml.jackson.annotation.JsonIgnore
@@ -11,7 +8,7 @@ import javax.persistence.*
 import java.io.Serial
 import java.io.Serializable
 import java.math.BigInteger
-import java.util.Date
+import java.util.*
 
 
 @Entity
@@ -25,7 +22,7 @@ class LineLog : Serializable {
   @get:JsonIgnore
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "entity_id", nullable = false)
-  var entity: Line? = null
+  var line: Line? = null
 
   @get:JsonIgnore
   @ManyToOne(fetch = FetchType.LAZY)
