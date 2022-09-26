@@ -9,18 +9,18 @@ class DropDownDTO  : Serializable {
   @Serial
   private val serialVersionUID = 1L
 
-  var id: JvmType.Object? = null
+  var id: Any? = null
 
   var label: String? = null
 
   var extraData: String? = null
 
-  constructor(id: JvmType.Object, label: String) {
+  constructor(id: Any, label: String) {
     this.id = id
     this.label = label
   }
 
-  constructor(id: JvmType.Object, label: String, extraData: String) {
+  constructor(id: Any, label: String, extraData: String) {
     this.id = id
     this.label = label
     this.extraData = extraData

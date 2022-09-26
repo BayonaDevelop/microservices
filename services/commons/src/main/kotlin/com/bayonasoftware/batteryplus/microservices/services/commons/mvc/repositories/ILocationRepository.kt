@@ -11,7 +11,7 @@ import java.math.BigInteger
 @Repository
 interface ILocationRepository : CrudRepository<Location, BigInteger> {
 
-  @Query("SELECT new com.bayonasoftware.batteryplus.microservices.utils.model.dtos.generic.DropDownDTO(obj.id, obj.name) FROM Location obj WHERE obj.municipality.id = :municipalityId AND obj.name = :String")
-  fun getForDDL(@Param("cityId") municipalityId: Int, @Param("label") label: String): List<DropDownDTO>
+  @Query("SELECT new com.bayonasoftware.batteryplus.microservices.utils.model.dtos.generic.DropDownDTO(obj.id, obj.name) FROM Location obj WHERE obj.municipality.id = :municipalityId AND obj.name = :label")
+  fun getForDDL(@Param("municipalityId") municipalityId: Int, @Param("label") label: String): MutableSet<DropDownDTO>
 
 }

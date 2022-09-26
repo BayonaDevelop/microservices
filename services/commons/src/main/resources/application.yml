@@ -16,7 +16,7 @@ spring:
     #generate-ddl: true
     hibernate:
       connection.provider_class: org.hibernate.hikaricp.internal.HikariCPConnectionProvider
-      ddl-auto: update
+      #ddl-auto: update
     open-in-view: false
     properties:
       hibernate:

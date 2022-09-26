@@ -6,11 +6,11 @@ import java.math.BigInteger
 
 interface IAddressService {
 
-  fun getCitiesForDDL(countryId: Int) : List<DropDownDTO>
+  fun getCitiesForDDL(countryId: Int) : MutableSet<DropDownDTO>
 
-  fun getMunicipalitiesForDDL(cityId: Int) : List<DropDownDTO>
+  fun getMunicipalitiesForDDL(cityId: Int) : MutableSet<DropDownDTO>
 
-  fun getLocationsForDDL(municipalityId: Int, label: String) : List<DropDownDTO>
+  fun getLocationsForDDL(municipalityId: Int, label: String) : MutableSet<DropDownDTO>
 
   fun create(param: AddressDTO): BigInteger
 

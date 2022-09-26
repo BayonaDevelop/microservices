@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository
 interface ICityRepository : CrudRepository<City, Int> {
 
   @Query("SELECT new com.bayonasoftware.batteryplus.microservices.utils.model.dtos.generic.DropDownDTO(obj.id, obj.name) FROM City obj WHERE obj.country.id = :countryId")
-  fun getForDDL(@Param("countryId") countryId: Int): List<DropDownDTO>
+  fun getForDDL(@Param("countryId") countryId: Int): MutableSet<DropDownDTO>
 
 }
